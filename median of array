@@ -1,0 +1,22 @@
+from typing import List
+
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        arr = sorted(nums1 + nums2)
+        n = len(arr)
+
+        if n % 2 == 1:
+            return float(arr[n // 2])
+        else:
+            return (arr[n // 2 - 1] + arr[n // 2]) / 2
+
+
+# Input
+nums1 = list(map(int, input("Enter first sorted array: ").split()))
+nums2 = list(map(int, input("Enter second sorted array: ").split()))
+
+# Find median
+sol = Solution()
+median = sol.findMedianSortedArrays(nums1, nums2)
+
+print("Median =", median)
